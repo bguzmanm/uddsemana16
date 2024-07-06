@@ -1,0 +1,32 @@
+const { Customer } = require('../models/Customer');
+
+const c1 = new Customer(1, 'Cliente', 'Feliz', 'cliente@feliz.com', 'Chile');
+const c2 = new Customer(2, 'Cliente', 'Enojado', 'cliente@enojado.com', 'Chile');
+const c3 = new Customer(3, 'No Cliente', 'Neutro', 'nocliente@neutro.com', 'Chile');
+
+const create = (req, res) => {
+  res.send(
+    {
+      ok: true,
+      description: 'Cliente creado correctamente'
+    }
+  );
+};
+
+const update = (req, res) => {
+  res.send({ ok: true, description: 'Cliente actualizado correctamente' });
+}
+
+const remove = (req, res) => {
+  res.send({ ok: true, description: 'Cliente eliminado correctamente' });
+}
+
+const findAll = (req, res) => {
+  res.send([c1, c2, c3]);
+}
+
+const findOne = (req, res) => {
+  res.send(c1);
+}
+
+module.exports = { create, update, remove, findAll, findOne };
